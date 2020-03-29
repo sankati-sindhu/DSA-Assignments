@@ -10,30 +10,23 @@ struct node {
   
 };
 
-struct node* insert(struct node* root, int data) {
-        
-    if(root == NULL) {
-    
-        struct node* node = initmemory();
+struct node* insert(){
+    struct node *newnode;
+    int x;
+    printf("Enter data:");
+    scanf("%d",&x);
 
-        node->data = data;
+    if(x==-1)
+        return NULL;
 
-        node->left = NULL;
-        node->right = NULL;
-        return node;
-      
-    } else {
-            
-        if(data <= root->data) { 
-            root->left = insert(root->left, data);
-        } 
+    newnode = initmemory();
+    newnode->data = x;
+    printf("left child of %d:\n",x);
+    newnode->left = insert();
+    printf("right child of %d:\n",x);
+    newnode->right = insert();
+    return newnode;
 
-        else {
-            root->right = insert(root->right, data);;
-        }
-    
-        return root;
-    }
 }
 
 void postOrder(struct node *root) {
@@ -61,20 +54,12 @@ void preOrder( struct node *root) {
 
 int main() {
   
-    struct node* root = NULL;
+    struct node* root = insert();
     
     int num,i;
     int data;
 
-    printf("enter initial tree size\n");
-    scanf("%d", &num);
 
-    printf("Enter the elements in tree\n");
-    for(i=0;i<num;i++){
-        scanf("%d", &data);
-        root = insert(root, data);
-    }
-    
     printf("\nPost Order:\n");
     postOrder(root);
 
@@ -85,3 +70,4 @@ int main() {
     inOrder(root);
     return 0;
 }
+
