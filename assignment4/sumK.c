@@ -3,8 +3,7 @@
 #include <limits.h>
 #define  max 1000
 
-typedef struct STACK
-{
+typedef struct STACK{
 	int ar[max];
 	int top;
 }stack;
@@ -23,16 +22,16 @@ int pop(stack *s){
 	return temp;
 }
 
-void display(stack *s){
+void display(stack s){
 	int i;
-	for(i =s->top;i>-1;i--){
-		printf("%d ",s->ar[i]);
+	for(i =s.top;i>-1;i--){
+		printf("%d ",s.ar[i]);
 	}
 	printf("\n");
 }
 void sumK(stack s1, stack v, int k ){
 	if (k==0){
-		display(&v);
+		display(v);
 		return;
 	}
 	if(s1.top == -1) return;
@@ -42,8 +41,7 @@ void sumK(stack s1, stack v, int k ){
 	push(&v1, temp);
 	sumK(s1,v1, k-temp);
 }
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]){
 	stack arr, v;
 	arr.top = -1;
 	v.top = -1;

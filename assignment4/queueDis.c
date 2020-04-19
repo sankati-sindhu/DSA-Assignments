@@ -59,7 +59,7 @@ int main()
 { 
 	queue q = createQueue(); 
 	int n, num;
-	printf("enter the number of element you want in the stack\n");
+	printf("enter the number of element you want in the queue\n");
 	scanf("%d",&n);
 	while(n--){
 		printf("number\n");
