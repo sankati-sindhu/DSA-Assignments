@@ -24,12 +24,12 @@ void display(stack *s){
 	}
 	printf("stack end\n");
 }
-void sumK(stack *s1,int n, stack v, int k ){
+void sumK(stack *s1, stack v, int k ){
 	if (k==0){
 		display(&v);
 		return;
 	}
-	if(n == 0) return;
+	if(s1.top == 0) return;
 	sumK(s1, n-1, v, k);
 	stack v1 = v;
 	int temp = s1->ar[n-1];
