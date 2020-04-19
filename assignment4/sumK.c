@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 #define  max 1000
 
@@ -15,26 +16,31 @@ void push(stack *s, int data){
 	s->top++;
 	s->ar[s->top] = data;
 }
-
+int pop(stack *s){
+	if(s->top < 0) return INT_MIN;
+	int temp = s->ar[s->top];
+	s->top--;
+	return temp;
+}
 
 void display(stack *s){
 	int i;
 	for(i =s->top;i>-1;i--){
 		printf("%d ",s->ar[i]);
 	}
-	printf("stack end\n");
+	printf("\n");
 }
-void sumK(stack *s1, stack v, int k ){
+void sumK(stack s1, stack v, int k ){
 	if (k==0){
 		display(&v);
 		return;
 	}
-	if(s1.top == 0) return;
-	sumK(s1, n-1, v, k);
+	if(s1.top == -1) return;
+	int temp = pop(&s1);
+	sumK(s1, v, k);
 	stack v1 = v;
-	int temp = s1->ar[n-1];
 	push(&v1, temp);
-	sumK(s1,n-1, v1, k-temp);
+	sumK(s1,v1, k-temp);
 }
 int main(int argc, char const *argv[])
 {
@@ -52,7 +58,7 @@ int main(int argc, char const *argv[])
 	printf("enter expected value\n");
 	scanf("%d",&expected);
 	n = arr.top+1;
-	sumK(&arr,n, v, expected);
+	sumK(arr, v, expected);
 	return 0;
 }
 
