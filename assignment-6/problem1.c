@@ -9,11 +9,10 @@ int binarySearch(int arr[],int size,int search){
 	int beg = 0, end = size-1, mid;
 	while(beg<=end){
 		mid = (beg+end)/2;
-		printf("%d\n",arr[mid] );
 		if(arr[mid] == search){ 
 			return mid;
 		}
-		else if(arr[mid]>search){
+		else if(arr[mid]<search){
 			end = mid-1;
 		}
 		else beg = mid+1;
