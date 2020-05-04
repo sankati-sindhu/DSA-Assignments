@@ -16,8 +16,10 @@ void displayAltSumPro(int arr[], int size){
 	printf("\nSum of the odd elements = %d\n",sum);
 	printf("\nproduct of the even elements = %d\n",product);
 }
-void divM(int arr[], int size, int m){
-	int i =0;
+void divM(int arr[], int size ){
+	int i =0,m;
+	printf("Enter the m\n" );
+	scanf("%d",&m);
 	printf("elements divisible by %d \n",m);
 	for(i=0;i<size;i++){
 		if(arr[i]%m == 0)
@@ -35,11 +37,11 @@ void bubbleSort(int arr[], int size)
 	           	arr[j+1] = temp;
            } 
     displayAltSumPro(arr,size);
-   	divM(arr, size, m);
+   	divM(arr, size);
 } 
 int main()
 {
-	int arr[100], size, i, m;
+	int arr[100], size, i;
 
 	printf("\nEnter the size of the array(max 100)");
 	scanf("%d",&size);
@@ -48,8 +50,7 @@ int main()
 	for(i=0;i<size;i++){
 		scanf("%d",&arr[i]);
 	}
-	printf("Enter the m\n" );
-	scanf("%d",&m);
+
 	bubbleSort(arr, size-1);
 	return 0;
 }
