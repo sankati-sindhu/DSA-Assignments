@@ -1,15 +1,15 @@
 #include <stdio.h>
 
-int binarySearch(int arr[],int beg, int end,int search){
+int binarySearch(int arr[],int beg,int end,int search){
 
+	int mid;
 	if(beg<=end){
-		int mid = (beg+end)/2;
+		mid = (beg+end)/2;
 		if(arr[mid] == search) return mid;
-		else if(arr[mid]>search){
-
-			binarySearch(arr,beg,mid-1,search);
+		if(arr[mid]>search){
+			return binarySearch(arr,beg,mid-1,search);
 		}
-		else binarySearch(arr,mid+1,end,search);
+		return binarySearch(arr,mid+1,end,search);	
 	}
 	
 	return -1;

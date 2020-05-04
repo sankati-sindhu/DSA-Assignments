@@ -34,7 +34,7 @@ void sumK(stack s1, stack v, int k ){
 		display(v);
 		return;
 	}
-	if(s1.top == -1) return;
+	if(s1.top == -1 || k<0) return;
 	int temp = pop(&s1);
 	sumK(s1, v, k);
 	stack v1 = v;
@@ -53,9 +53,8 @@ int main(int argc, char const *argv[]){
 		scanf("%d",&num);
 		push(&arr, num);
 	}
-	printf("enter expected value\n");
+	printf("enter expected sum\n");
 	scanf("%d",&expected);
-	n = arr.top+1;
 	sumK(arr, v, expected);
 	return 0;
 }
