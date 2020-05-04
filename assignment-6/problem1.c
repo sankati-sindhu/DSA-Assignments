@@ -3,7 +3,7 @@
 
 int comparator (const void * p1, const void * p2)
 {
-  return (*(int*)p1 - *(int*)p2);
+  return (*(int*)p2 - *(int*)p1);
 }
 int binarySearch(int arr[],int size,int search){
 	int beg = 0, end = size-1, mid;
